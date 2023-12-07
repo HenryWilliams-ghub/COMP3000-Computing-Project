@@ -1,0 +1,4 @@
+REM Test File for Rubber Ducky Script
+DELAY 3000
+STRING Hello, World!
+ENTER
