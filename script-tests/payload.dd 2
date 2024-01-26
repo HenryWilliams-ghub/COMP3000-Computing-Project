@@ -1,7 +1,10 @@
 DELAY 3000
 GUI r
+REM Opens Windows Run App
 DELAY 1000
-STRING cmd /Q /D /T:7F /F:OFF /V:ON /K
+STRING cmd /D /T:7F /F:OFF /V:ON /K
+REM The line above opens a new Command Prompt window with the colour set to white, echo turned off, AutoRun disabled, AutoComplete turned off, delayed variable expansion enabled, and it will remain open for further commands. 
+REM This allows the attacker to hide the code being executed, and run commands without interuption
 DELAY 500
 ENTER
 DELAY 750
@@ -9,7 +12,9 @@ ALT SPACE
 STRING M
 DOWNARROW
 REPEAT 100
+REM the above send the CMD window to the bottom of the screen. The script is still entered, but it is off the screen out of the sight of the user.
 ENTER
 DELAY 500
 STRING start www.google.com/search?q=Malware
 ENTER
+REM This enters the command to open google and search for 'Malware'
