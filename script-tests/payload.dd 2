@@ -10,3 +10,6 @@ STRING M
 DOWNARROW
 REPEAT 100
 ENTER
+DELAY 500
+STRING start www.google.com/search?q=Malware
+ENTER
