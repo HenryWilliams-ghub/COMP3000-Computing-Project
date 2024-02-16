@@ -1,0 +1,63 @@
+import pygame
+import sys
+from codegenerator import generate_random_code 
+
+# Initialize pygame
+pygame.init()
+
+# Screen setup
+size = width, height = 800, 200
+screen = pygame.display.set_mode(size)
+pygame.display.set_caption('Code Verification')
+
+# Colors
+background_color = (255, 255, 255)
+text_color_correct = (0, 255, 0)  # Green for correct characters
+text_color_incorrect = (255, 0, 0)  # Red for incorrect characters
+font_color = (0, 0, 0)  # Black for initial display
+
+# Text setup
+font = pygame.font.Font(None, 74)
+code = generate_random_code()
+input_code = ''  # To store user inputs
+
+# Main loop
+running = True
+while running:
+    screen.fill(background_color)
+    
+    # Event handling
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+        elif event.type == pygame.KEYDOWN:
+            if event.unicode.isalnum():  # Check if the input is alphanumeric
+                input_code += event.unicode  # Add the input character to the input_code string
+                
+                # Limit the input_code length to the code length
+                input_code = input_code[:len(code)]
+    
+    # Render the code with color changes based on the input
+    for i, char in enumerate(code):
+        if i < len(input_code):
+            char_color = text_color_correct if code[i] == input_code[i] else text_color_incorrect
+        else:
+            char_color = font_color
+        
+        char_surface = font.render(char, True, char_color)
+        screen.blit(char_surface, (i*100+50, height/2-37))
+    
+    pygame.display.flip()  # Update the full display Surface to the screen
+    
+    # Check if the code is correct
+    if len(input_code) == len(code):
+        if input_code == code:
+            print('Code correct')
+            running = False  # Exit the loop
+        else:
+            print('Code incorrect')
+            running = False  # Exit the loop if the input_code is full but incorrect
+
+# Quit pygame
+pygame.quit()
+sys.exit()
