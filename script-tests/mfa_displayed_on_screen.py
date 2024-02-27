@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- coding:utf-8 -*-
+import RPi.GPIO as GPIO
 import sys
+sys.path.append('/python/lib/waveshare_epd')
 import os
 import time
 from datetime import datetime
@@ -10,15 +12,14 @@ import traceback
 import random
 import string
 
-
-# Import the necessary library for the e-Paper display
-from waveshare_epd import epd2in13_V4
-
 # Directory setup for fonts and images
 picdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'pic')
 libdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'lib')
 if os.path.exists(libdir):
     sys.path.append(libdir)
+
+# Import the necessary library for the e-Paper display
+from waveshare_epd import epd2in13_V4
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -26,10 +27,6 @@ def get_new_mfa_code(length=6):
 # Generates a random string of letters and digits
     characters = string.ascii_letters + string.digits
     return ''.join(random.choice(characters) for i in range(length))
-
-# Generate and display the code
-code = generate_random_code()
-print(f"Your code is: {code}")
 
 def draw_progress_bar(draw, width, height, progress):
     # Function to draw the progress bar
