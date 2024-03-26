@@ -5,7 +5,7 @@ sudo mkdir g1 && cd g1
 sudo bash -c 'echo 0x1d6b > idVendor'  # Linux Foundation
 sudo bash -c 'echo 0x0104 > idProduct' # Multifunction Composite Gadget
 sudo mkdir -p strings/0x409
-sudo bash -c 'echo "10000000c375c7e1" > strings/0x409/serialnumber'
+sudo bash -c 'echo "1000000076fd8e80" > strings/0x409/serialnumber'
 sudo bash -c 'echo "Sony" > strings/0x409/manufacturer'
 sudo bash -c 'echo "Raspberry Pi 4 Model B" > strings/0x409/product'
 sudo mkdir -p configs/c.1/strings/0x409
